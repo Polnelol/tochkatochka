@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>Tochka test</title>
+</head>
+<body>
+    
+<section class="form">
+    <h1>FTL: Прямая машина</h1>
+    <div class="_container">
+        <form>
+            <div class="form__item">
+                <div class="form__item-title">
+                    <div class="form__item-number">1</div>
+                    <h2>Маршрут</h2>
+                </div>
+                <div class="form__item-field">
+                    <label for="from">Откуда</label>
+                        <input type="text" id="from">
+                </div>
+                <div class="form__item-field">
+                    <label for="to">Куда</label>
+                    <input type="text" id="to">
+                </div>
+                <div class="notify">
+                    Для расчета стоимости необходимо<br> ввести параметры груза, пункты отправки и прибытия.
+                </div>
+            </div>
+            <div class="form__item">
+                <div class="form__item-title">
+                    <div class="form__item-number">2</div>
+                    <h2>Транспорт</h2>
+                </div>
+                <div class="form__item-field field-sm">
+                    <label for="carrying">Грузоподъёмность</label>
+                    <div class="select_mate sm" data-mate-select="active" >
+                        <select name="" onchange="" onclick="return false;" id="">
+                            <option value="1" disabled selected>Не выбрана</option>
+                            <option value="2">option 1</option>
+                            <option value="3" >option 2</option>
+                            <option value="4">option 3</option>
+                        </select>
+                    <p class="selecionado_opcion"  onclick="open_select(this)"></p>
+                    <span onclick="open_select(this)" class="icon_select_mate">
+                        <svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M1 0L4 3L7 0L8 1L4 5L0 1L1 0Z' fill='black'></path></svg>
+                    </span>
+                    <div class="cont_list_select_mate">
+                        <ul class="cont_select_int">  </ul> 
+                    </div>
+                    </div>
+                </div>
+                <div class="form__item-field field-sm">
+                    <label for="loading">Способ погрузки</label>
+                    <div class="select_mate sm" data-mate-select="active" >
+                        <select name="" onchange="" onclick="return false;" id="">
+                            <option value="1" disabled selected>Не выбран</option>
+                            <option value="2">option 1</option>
+                            <option value="3" >option 2</option>
+                            <option value="4">option 3</option>
+                        </select>
+                    <p class="selecionado_opcion"  onclick="open_select(this)"></p>
+                    <span onclick="open_select(this)" class="icon_select_mate">
+                        <svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M1 0L4 3L7 0L8 1L4 5L0 1L1 0Z' fill='black'></path></svg>
+                    </span>
+                    <div class="cont_list_select_mate">
+                        <ul class="cont_select_int">  </ul> 
+                    </div>
+                    </div>
+                </div>                         
+            </div>
+            <div class="form__item">
+                <div class="form__item-title">
+                    <div class="form__item-number">3</div>
+                    <h2>Груз</h2>
+                </div>
+                <div class="form__item-field field-md">
+                    <label for="type">Тип груза</label>
+                    <div class="select_mate md" data-mate-select="active" >
+                        <select name="" onchange="" onclick="return false;" id="">
+                            <option value="1" disabled selected>Не выбран</option>
+                            <option value="2">option 1</option>
+                            <option value="3" >option 2</option>
+                            <option value="4">option 3</option>
+                        </select>
+                    <p class="selecionado_opcion"  onclick="open_select(this)"></p>
+                    <span onclick="open_select(this)" class="icon_select_mate">
+                        <svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M1 0L4 3L7 0L8 1L4 5L0 1L1 0Z' fill='black'></path></svg>
+                    </span>
+                    <div class="cont_list_select_mate">
+                        <ul class="cont_select_int">  </ul> 
+                    </div>
+                    </div>
+                </div>
+                <div class="form__item-field field-sm">
+                    <label for="class">Класс опасности</label>
+                    <div class="select_mate sm" data-mate-select="active" >
+                        <select name="" onchange="" onclick="return false;" id="">
+                            <option value="1" disabled selected>Не выбран</option>
+                            <option value="2">Класс 5 — Окисляющие вещества и органические перекиси</option>
+                            <option value="3" >option 2</option>
+                            <option value="4">option 3</option>
+                        </select>
+                    <p class="selecionado_opcion"  onclick="open_select(this)"></p>
+                    <span onclick="open_select(this)" class="icon_select_mate">
+                        <svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M1 0L4 3L7 0L8 1L4 5L0 1L1 0Z' fill='black'></path></svg>
+                    </span>
+                    <div class="cont_list_select_mate">
+                        <ul class="cont_select_int">  </ul> 
+                    </div>
+                    </div>
+                </div>
+                <div class="form__item-field field-sm">
+                    <label for="class">Объявленная ценность, ₽</label>
+                    <input type="text" placeholder=">1">
+                </div>
+                <div class="form__item-field _field-checkbox">
+                    <input class="_custom-checkbox" id="temperature" type="checkbox" value="">
+                    <label for="temperature">Требуется температурный режим</label>                      
+                </div>
+                <div id="temperature-value">
+                    <div class="form__item-field field-sm">
+                        <label for="class">От, °C</label>
+                        <input type="text" placeholder="-20">
+                    </div>
+                    <div class="form__item-field field-sm">
+                        <label for="class">До, °C</label>
+                        <input type="text" placeholder="+23">
+                    </div>
+                </div>
+            </div>
+            <div class="form__item">
+                <div class="form__item-title _mb-5">
+                    <div class="form__item-number">4</div>
+                    <h2>Время</h2>
+                    <div class="form__item-subtitle"><span>Когда прибыть на точку</span><span>700 км в день</span></div>
+                </div>
+                <div class="form__item-field">
+                    <div class="address-field">
+                        <input type="text" placeholder="Адрес не указан">
+                        <div class="address-field-mask">
+                            <div class="selected-mark">Не выбрано</div>
+                        </div>                       
+                    </div>
+                    <div class="address-field">
+                        <input type="text" placeholder="Адрес не указан">
+                        <div class="address-field-mask">
+                            <div class="selected-mark">Не выбрано</div>
+                        </div>                       
+                    </div>                   
+                </div>
+                <div class="form__item-field">
+                    <label for="class">Комментарий к заказу</label>
+                    <textarea placeholder="Укажите особенности въезда на территорию склада или подъезда к адресу"></textarea>
+                </div>       
+            </div>
+        </form>
+    </div>
+</section>
+<script src="js/script.js"></script>
+</body>
+</html>

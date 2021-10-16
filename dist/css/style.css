@@ -1,0 +1,643 @@
+@charset "UTF-8";
+
+/* Указываем box sizing */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+
+img {
+  max-width: 100%;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+
+@font-face {
+  font-family: "Helvetica Neue Light";
+  src: local("Helvetica Neue Light"), local("Helvetica-Neue-Light"), url("../fonts/HelveticaNeueCyr-Light.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Light.woff") format("woff"), url("../fonts/HelveticaNeueCyr-Light.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica Neue Medium";
+  src: local("Helvetica Neue Medium"), local("Helvetica-Neue-Medium"), url("../fonts/HelveticaNeueCyr-Medium.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Medium.woff") format("woff"), url("../fonts/HelveticaNeueCyr-Medium.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica Neue Bold";
+  src: local("Helvetica Neue Bold"), local("Helvetica-Neue-Bold"), url("../fonts/HelveticaNeueCyr-Bold.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Bold.woff") format("woff"), url("../fonts/HelveticaNeueCyr-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 56px;
+  line-height: 68px;
+  font-family: "Helvetica Neue Bold";
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 30px;
+  font-family: "Helvetica Neue Medium";
+}
+
+body {
+  font-family: "Helvetica Neue Medium";
+  background: #343539;
+  color: #fff;
+  padding-bottom: 50px;
+}
+
+textarea {
+  min-height: 80px;
+  padding: 14px 13px;
+  font-family: "Helvetica Neue Light";
+  font-size: 15px;
+  line-height: 18px;
+  color: #000;
+  resize: none;
+  outline: none;
+}
+
+textarea::-moz-placeholder {
+  color: #CFCFCF;
+}
+
+textarea:-ms-input-placeholder {
+  color: #CFCFCF;
+}
+
+textarea::placeholder {
+  color: #CFCFCF;
+}
+
+/* класс тех. блока, без семантического смысла, начанается с _ */
+
+._container {
+  width: 728px;
+}
+
+._field-checkbox label {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+.form {
+  padding: 40px 0 0 152px;
+}
+
+.form__item {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.form__item ._field-checkbox {
+  margin-bottom: 7px;
+}
+
+.form__item-title {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form__item-title._mb-5 {
+  margin-bottom: 5px;
+}
+
+.form__item-subtitle {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.form__item-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 728px;
+  margin-bottom: 15px;
+}
+
+.form__item-field label {
+  font-family: "Helvetica Neue Light";
+  font-size: 13px;
+  line-height: 15px;
+  margin-bottom: 8px;
+  color: #CFCFCF;
+}
+
+.form__item-field input,
+.form__item-field select {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  font-size: 15px;
+  outline: none;
+  border: none;
+}
+
+.form__item-field input._custom-checkbox {
+  position: absolute;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.form__item-field select {
+  padding-right: 40px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M1 0L4 3L7 0L8 1L4 5L0 1L1 0Z' fill='black'></path></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 90%;
+  background-position-y: 50%;
+}
+
+.form__item-field + label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+
+.form__item-field + label:before {
+  content: "";
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #fff;
+}
+
+.form__item-field:hover + label:before {
+  opacity: 0.9s;
+}
+
+.form__item-field:focus + label:before {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+}
+
+.form__item-field:disabled + label {
+  cursor: auto;
+}
+
+.form__item-field:disabled + label:before {
+  box-shadow: none;
+  background: #EF483E;
+}
+
+.form__item-field:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 9px;
+  width: 2px;
+  height: 2px;
+  box-shadow: 2px 0 0 #fff, 4px 0 0 #fff, 4px -2px 0 #fff, 4px -4px 0 #fff, 4px -6px 0 #fff, 4px -8px 0 #fff;
+  transform: rotate(45deg);
+}
+
+.form__item-field:checked + label:before {
+  background: #EF483E;
+  border: none;
+}
+
+.form__item-field.field-sm {
+  width: 172px;
+  position: relative;
+  margin-right: 12px;
+}
+
+.notify {
+  position: absolute;
+  top: 0;
+  right: -368px;
+  width: 356px;
+  height: 102px;
+  padding: 28px;
+  background: #4b4b4f;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  font-size: 15px;
+  line-height: 18px;
+  font-family: "Helvetica Neue Light";
+  -webkit-animation: zoomIn26 0.5s 1.2s both;
+  animation: zoomIn26 0.5s 1.2s both;
+}
+
+.field-md input,
+.field-md select {
+  position: relative;
+  max-width: 356px;
+}
+
+#class {
+  display: block;
+  position: relative;
+}
+
+.form__item-number {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  background: #EF483E;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+}
+
+.selected-info {
+  width: 119px;
+  height: 24px;
+  margin-left: auto;
+  opacity: 0.3;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.address-field {
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.address-field input {
+  padding-left: 36px;
+  background: #4B4B4F;
+  border: none;
+  color: #fff;
+}
+
+.address-field input:focus + .address-field-mask:before {
+  border: 4px solid #EF483E;
+}
+
+.address-field input:focus + .address-field-mask .selected-mark {
+  opacity: 1;
+}
+
++ .address-field input:focus .address-field-mask:before {
+  border: 4px solid #EF483E;
+}
+
++ .address-field input:focus .address-field-mask .selected-mark {
+  border: 4px solid #EF483E;
+}
+
+.address-field-mask:before {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  margin-top: -8px;
+  left: 12px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.selected-mark {
+  position: absolute;
+  width: 119px;
+  height: 24px;
+  font-size: 13px;
+  line-height: 24px;
+  text-transform: uppercase;
+  font-family: "Helvetica Neue Light";
+  border-radius: 2px;
+  background: #717174;
+  text-align: center;
+  top: 50%;
+  margin-top: -12px;
+  right: 10px;
+  opacity: 0.3;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+select {
+  color: #CFCFCF;
+}
+
+select option {
+  color: #000;
+  height: 28px;
+  outline: 2px solid green;
+}
+
+select option:checked {
+  display: none;
+}
+
+select[data-chosen="1"] {
+  color: #CFCFCF;
+}
+
+select[data-chosen="2"],
+select[data-chosen="3"],
+select[data-chosen="4"] {
+  color: #000;
+}
+
+.icon_select_mate {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 16px;
+  height: 22px;
+  transition: all 275ms;
+}
+
+.select_mate {
+  position: relative;
+  min-height: 44px;
+  color: #000;
+  background-color: #fff;
+  transition: all 375ms ease-in-out;
+}
+
+.select_mate select {
+  position: absolute;
+  overflow: hidden;
+  height: 0px;
+  opacity: 0;
+  z-index: -1;
+}
+
+.select_mate.sm {
+  width: 172px;
+}
+
+.select_mate.md {
+  width: 356px;
+}
+
+.cont_list_select_mate {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.cont_select_int {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 999;
+  overflow: hidden;
+  height: 0px;
+  width: 100%;
+  background-color: #fff;
+  padding: 0px;
+  transition: all 375ms ease-in-out;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.cont_select_int li {
+  position: relative;
+  width: 100%;
+  height: 28px;
+  font-size: 14px;
+  line-height: 28px;
+  background-color: #fff;
+  list-style-type: none;
+  transition: all 275ms ease-in-out;
+  display: block;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.cont_select_int li:last-child {
+  border-radius: 3px;
+  border-bottom: 0px;
+}
+
+.cont_select_int li:hover {
+  background-color: #EF483E;
+}
+
+.cont_select_int .active {
+  background-color: #EF483E;
+}
+
+.selecionado_opcion {
+  padding: 0 13px;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 44px;
+  max-height: 44px;
+  overflow: hidden;
+}
+
+#temperature-value {
+  display: none;
+}
+
+@-webkit-keyframes zoomIn26 {
+  from {
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 0.5);
+  }
+
+  50% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes zoomIn26 {
+  from {
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 0.5);
+  }
+
+  50% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 998px) {
+  .notify {
+    display: none;
+  }
+
+  ._container {
+    margin: 0 auto;
+  }
+
+  .form {
+    padding: 30px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 780px) {
+  ._container {
+    width: 100%;
+  }
+
+  .form {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .form {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form {
+    padding: 40px 16px;
+  }
+
+  .form__item {
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-size: 29px;
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .field-sm {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .field-sm {
+    width: 165px;
+  }
+
+  .form__item-field.field-sm {
+    margin-right: 0;
+    width: 165px;
+  }
+
+  .select_mate.sm {
+    width: 165px;
+  }
+
+  .select_mate.md {
+    width: 100%;
+  }
+
+  .form__item-number {
+    margin-right: 5px;
+  }
+
+  .form__item-field label {
+    font-size: 12px;
+  }
+
+  .form__item-title {
+    margin-bottom: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

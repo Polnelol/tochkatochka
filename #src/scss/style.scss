@@ -1,0 +1,473 @@
+@import "reset-custom.scss";
+@import "fonts.scss";
+@import "colors.scss";
+@import "media.scss";
+
+%tpl-h1 {
+    font-size: 56px;
+    line-height: 68px;
+    font-family: $default-bold;
+    margin-bottom: 20px;
+}
+
+%tpl-h2 {
+    font-size: 24px;
+    line-height: 30px;
+    font-family: $default-medium;
+}
+
+body {
+    font-family: $default-medium;
+    background: $bg-generic;
+    color: $white;
+    padding-bottom: 50px;
+}
+
+h1 {
+    @extend %tpl-h1;
+}
+
+h2 {
+    @extend %tpl-h2;
+}
+
+textarea {
+    min-height: 80px;
+    padding: 14px 13px;
+    font-family: $default-light;
+    font-size: 15px;
+    line-height: 18px;
+    color: $black;
+    resize: none;
+    outline: none;
+}
+
+textarea {
+    &::placeholder {
+        color: $bg-text-prompt;
+    } 
+}
+
+/* класс тех. блока, без семантического смысла, начанается с _ */
+._container {
+    width: 728px;
+}
+
+._field-checkbox {
+    label {
+        max-width: fit-content;
+    } 
+}
+
+.form {
+    padding: 40px 0 0 152px;
+}
+
+.form__item {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+
+    ._field-checkbox {
+        margin-bottom: 7px;
+    }
+}
+
+.form__item-title {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+
+    &._mb-5 {
+        margin-bottom: 5px;
+    }
+}
+
+.form__item-subtitle {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.form__item-field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 728px;
+    margin-bottom: 15px;
+
+    label {
+        font-family: "Helvetica Neue Light";
+        font-size: 13px;
+        line-height: 15px;
+        margin-bottom: 8px;
+        color: $bg-text-prompt;
+    }
+
+    input,select {
+        width: 100%;
+        height: 44px;
+        padding: 0 14px;
+        font-size: 15px;
+        outline: none;
+        border: none;
+    }
+
+    input {
+        &._custom-checkbox {
+            position: absolute; 
+            opacity: 0;
+            transition: all .2s ease-in-out; 
+        }
+    }
+    
+    select {
+        padding-right: 40px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M1 0L4 3L7 0L8 1L4 5L0 1L1 0Z' fill='black'></path></svg>");
+        background-repeat: no-repeat;
+        background-position-x: 90%;
+        background-position-y: 50%;
+    }
+    
+    & + label {
+      position: relative;
+      cursor: pointer;
+      padding: 0;
+    }
+  
+    & + label:before {
+      content: '';
+      margin-right: 10px;
+      display: inline-block;
+      vertical-align: text-top;
+      width: 24px;
+      height: 24px;
+      border: 2px solid $white;
+    }
+  
+    &:hover + label:before {
+        
+        opacity: .9s; 
+    }
+    
+    &:focus + label:before {
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+    }
+    
+    &:disabled + label {
+      cursor: auto;
+    }
+  
+    &:disabled + label:before {
+      box-shadow: none;
+      background: $orange;
+    }
+    
+    &:checked + label:after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 9px;
+      width: 2px;
+      height: 2px;
+      box-shadow: 
+        2px 0 0 $white,
+        4px 0 0 $white,
+        4px -2px 0 $white,
+        4px -4px 0 $white,
+        4px -6px 0 $white,
+        4px -8px 0 $white;
+      transform: rotate(45deg);
+    }
+
+    &:checked + label:before{
+        background: $orange;
+        border: none;
+    }
+
+    &.field-sm {
+        width: 172px;
+        position: relative;
+        margin-right: 12px;
+    }
+}
+
+.notify {
+    position: absolute;
+    top: 0;
+    right: -368px;
+    width: 356px;
+    height: 102px;
+    padding: 28px;
+    background: #4b4b4f;
+    box-shadow: 0 10px 20px rgb(0 0 0 / 10%);
+    font-size: 15px;
+    line-height: 18px;
+    font-family: "Helvetica Neue Light";
+    -webkit-animation: zoomIn26 .5s 1.2s both;
+    animation: zoomIn26 .5s 1.2s both;
+}
+
+.field-md {
+    input, select {
+        position: relative;
+        max-width: 356px;
+    } 
+}
+
+#class {
+    display: block;
+    position: relative;
+}
+
+.form__item-number {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    background: $orange;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+}
+
+.selected-info {
+    width: 119px;
+    height: 24px;
+    margin-left: auto;
+    opacity: 0.3;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.address-field {
+    position: relative;
+    margin-bottom: 4px;
+
+    input {
+        padding-left: 36px;
+        background: $bg-input-prompt;
+        border: none;
+        color: $white;
+
+        &:focus + .address-field-mask {
+            &:before {
+                border: 4px solid $orange;
+            }
+            .selected-mark {
+                opacity: 1;
+            }
+        }
+    }
+
+    input {
+        &:focus {
+            + & .address-field-mask {
+                &:before {
+                    border: 4px solid $orange;
+                }
+                
+            }
+            
+            + & .address-field-mask {
+                .selected-mark {
+                    border: 4px solid $orange;
+                } 
+            }
+        }        
+    }
+}
+
+.address-field-mask {
+    &:before {
+        position: absolute;
+        content: '';
+        width: 16px;
+        height: 16px;
+        top: 50%;
+        margin-top: -8px;
+        left: 12px;
+        border: 4px solid $white;
+        border-radius: 50%;
+        transition: 0.4s;
+    }
+    
+}
+
+.selected-mark {
+    position: absolute;
+    width: 119px;
+    height: 24px;
+    font-size: 13px;
+    line-height: 24px;
+    text-transform: uppercase;
+    font-family: $default-light;
+    border-radius: 2px;
+    background: #717174;
+    text-align: center;
+    top: 50%;
+    margin-top: -12px;
+    right: 10px;
+    opacity: 0.3;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+select {
+    color: $bg-text-prompt;
+
+    option {
+        color: $black;
+        height: 28px;
+        outline: 2px solid green;
+
+        &:checked {
+            display: none;
+        }
+    }
+}
+
+select[data-chosen='1'] {
+    color: $bg-text-prompt;
+}
+
+select[data-chosen='2'],
+select[data-chosen='3'],
+select[data-chosen='4']  {
+    color: $black;
+}
+
+.icon_select_mate {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 16px;
+  height: 22px;
+  transition: all 275ms;
+}
+
+
+.select_mate {
+  position: relative;
+  min-height: 44px;
+  color: $black;
+  background-color: $white;
+  transition: all 375ms ease-in-out;
+
+  select {
+  position: absolute;
+  overflow: hidden;
+  height: 0px;
+  opacity: 0;  
+    z-index: -1;
+  }
+
+    &.sm {
+        width: 172px;
+    }
+    
+    &.md {
+        width: 356px;
+    }
+}
+
+.cont_list_select_mate {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.cont_select_int {
+ position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 999;
+  overflow: hidden;
+  height: 0px;
+  width: 100%;
+  background-color: #fff;
+  padding: 0px;
+  transition: all 375ms ease-in-out;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, .5);
+
+	li {
+	position: relative;
+    width: 100%;
+    height: 28px;
+    font-size: 14px;
+    line-height: 28px;
+    background-color: $white;
+    list-style-type: none;
+    transition: all 275ms ease-in-out;
+    display: block;
+    padding: 0 12px;
+    cursor:pointer;
+		
+		&:last-child {
+        border-radius: 3px;
+        border-bottom:0px; 
+
+        }
+         &:hover {
+		background-color: $orange;
+		 } 
+     }
+
+   .active {
+   background-color: $orange;
+   }
+
+}
+
+.selecionado_opcion {
+    padding: 0 13px;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 44px;
+    max-height: 44px;
+    overflow: hidden;
+}
+
+#temperature-value {
+    display: none;
+}
+
+
+@-webkit-keyframes zoomIn26 {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(.5, .5, .5);
+        transform: scale3d(.5, .5, .5);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes zoomIn26 {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(.5, .5, .5);
+        transform: scale3d(.5, .5, .5);
+    }
+    50% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+
+
+
